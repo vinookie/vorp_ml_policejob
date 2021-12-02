@@ -12,8 +12,8 @@ Citizen.CreateThread(function()
 
     while true do
 
-        local ped = GetPlayerPed()
-        local coords = GetEntityCoords(PlayerPedId())
+        local ped = PlayerPedId()
+        local coords = GetEntityCoords(ped)
 
         if WarMenu.IsMenuOpened('perso') then
 
@@ -136,13 +136,13 @@ Citizen.CreateThread(function()
     local checkbox2 = false
     WarMenu.CreateMenu('perso2', _U('titulo'))
     WarMenu.SetSubTitle('perso2', _U('subtitulo'))
-    --WarMenu.CreateSubMenu('inv3', 'perso2', _U('sub_menu_5'))
-    --WarMenu.CreateSubMenu('inv4', 'perso2', _U('sub_menu_6'))
+    WarMenu.CreateSubMenu('inv3', 'perso2', _U('sub_menu_5'))
+    WarMenu.CreateSubMenu('inv4', 'perso2', _U('sub_menu_6'))
 	WarMenu.CreateSubMenu('TP', 'perso2', _U('sub_menu_7'))
 
     while true do
         local sleep = true
-        local ped = GetPlayerPed()
+        local ped = PlayerPedId()
         local coords = GetEntityCoords(PlayerPedId())
 
         if WarMenu.IsMenuOpened('perso2') then
@@ -200,19 +200,19 @@ Citizen.CreateThread(function()
         elseif WarMenu.IsMenuOpened('inv4') then   
 
             if WarMenu.Button(_U('lasso')) then
-                Citizen.InvokeNative(0xB282DC6EBD803C75, GetPlayerPed(), GetHashKey("WEAPON_LASSO"), 500, true, 0)
+                Citizen.InvokeNative(0xB282DC6EBD803C75, PlayerPedId(), GetHashKey("WEAPON_LASSO"), 500, true, 0)
 				elseif WarMenu.Button(_U('revolver')) then
-                Citizen.InvokeNative(0xB282DC6EBD803C75, GetPlayerPed(), GetHashKey("WEAPON_REVOLVER_CATTLEMAN"), 500, true, 0)
+                Citizen.InvokeNative(0xB282DC6EBD803C75, PlayerPedId(), GetHashKey("WEAPON_REVOLVER_CATTLEMAN"), 500, true, 0)
 			elseif WarMenu.Button(_U('repeater')) then
-                Citizen.InvokeNative(0xB282DC6EBD803C75, GetPlayerPed(), GetHashKey("WEAPON_REPEATER_HENRY"), 500, true, 0)
+                Citizen.InvokeNative(0xB282DC6EBD803C75, PlayerPedId(), GetHashKey("WEAPON_REPEATER_HENRY"), 500, true, 0)
 			elseif WarMenu.Button(_U('shotgun')) then
-                Citizen.InvokeNative(0xB282DC6EBD803C75, GetPlayerPed(), GetHashKey("WEAPON_SHOTGUN_PUMP"), 500, true, 0)
+                Citizen.InvokeNative(0xB282DC6EBD803C75, PlayerPedId(), GetHashKey("WEAPON_SHOTGUN_PUMP"), 500, true, 0)
 			elseif WarMenu.Button(_U('rifle')) then
-                Citizen.InvokeNative(0xB282DC6EBD803C75, GetPlayerPed(), GetHashKey("WEAPON_SNIPERRIFLE_ROLLINGBLOCK"), 500, true, 0)
+                Citizen.InvokeNative(0xB282DC6EBD803C75, PlayerPedId(), GetHashKey("WEAPON_SNIPERRIFLE_ROLLINGBLOCK"), 500, true, 0)
 			elseif WarMenu.Button(_U('lantern')) then
-                Citizen.InvokeNative(0xB282DC6EBD803C75, GetPlayerPed(), GetHashKey("WEAPON_MELEE_LANTERN_ELECTRIC"), 500, true, 0)
+                Citizen.InvokeNative(0xB282DC6EBD803C75, PlayerPedId(), GetHashKey("WEAPON_MELEE_LANTERN_ELECTRIC"), 500, true, 0)
 			elseif WarMenu.Button(_U('knife')) then
-                Citizen.InvokeNative(0xB282DC6EBD803C75, GetPlayerPed(), GetHashKey("WEAPON_MELEE_KNIFE"), 500, true, 0)
+                Citizen.InvokeNative(0xB282DC6EBD803C75, PlayerPedId(), GetHashKey("WEAPON_MELEE_KNIFE"), 500, true, 0)
 			
 			
              end

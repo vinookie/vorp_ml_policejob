@@ -19,7 +19,7 @@
 
 ## 4. Info
 - KLS
-- Open menu with [U]
-- Open menu at pd with [G]
+- Open menu with [8]
+- Open menu at pd with [B]
 
-- Based on [MrLupo](https://github.com/mrlupo) [ml_policejob](https://github.com/mrlupo/ml_policejob)
+- Based on [MrLupo](https://github.com/mrlupo) [ml_policejob](https://github.com/mrlupo/ml_policejob) and originally forked by NeoGaming22. Minimally updated for OneSync support.
