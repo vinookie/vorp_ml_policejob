@@ -1,5 +1,28 @@
+local draggedBy = -1
+local drag = false
+local wasDragged = false
 
+RegisterNetEvent("vorp_ml_policejob:drag")
+AddEventHandler("vorp_ml_policejob:drag", function(_source)
+    draggedBy = _source
+    drag = not drag
+end)
 
+-- Dragging
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        if drag then
+            wasDragged = true
+            AttachEntityToEntity(PlayerPedId(), GetPlayerPed(GetPlayerFromServerId(draggedBy)), 4103, 11816, 0.48, 0.00, 0.0, 0.0, 0.0, 0.0, false, false, false, false, 2, true)
+        else
+            if wasDragged then
+                wasDragged = false
+                DetachEntity(PlayerPedId(), true, false)    
+            end
+        end
+    end
+end)
 
 Citizen.CreateThread(function()
     local checkbox2 = false
@@ -59,7 +82,12 @@ Citizen.CreateThread(function()
                    
                 end
             elseif WarMenu.Button(_U('drag')) then
-                ExecuteCommand('drag')
+                local closestPlayer, closestDistance = GetClosestPlayer()
+                if closestPlayer ~= -1 and closestDistance <= 3.0 then
+
+                    TriggerServerEvent("vorp_ml_policejob:drag", GetPlayerServerId(closestPlayer))
+
+                end
             elseif WarMenu.Button(_U('meter')) then 
                 local closestPlayer, closestDistance = GetClosestPlayer()
                     if closestPlayer ~= -1 and closestDistance <= 3.0 then
