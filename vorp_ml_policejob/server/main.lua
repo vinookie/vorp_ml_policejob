@@ -125,5 +125,4 @@ AddEventHandler('vorp_ml_policejob:lassoplayer', function(target)
     TriggerClientEvent('vorp_ml_policejob:hogtie', _target)
     -- print('serverlasso')
     TriggerClientEvent("vorp:TipBottom", _source, _U('atado'), 4000) -- from server side
-    TriggerClientEvent("vorp:TipBottom", _source, _U('atado'), 4000) -- from server side
 end)
