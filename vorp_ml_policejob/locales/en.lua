@@ -48,5 +48,7 @@ Locales['en'] = {
     ['deletevehicle'] = 'Delete Vehicle',
     ['uncuff'] = 'Uncuffed Suspect',
     ['cuff'] = 'Cuffed Suspect',
-    ['llock'] = 'Tied up Lasso'
+    ['llock'] = 'Tied up Lasso',
+    ['nodrag'] = 'You cannot drag yourself.',
+    ['norange'] = 'No one in range.'
 }

@@ -62,13 +62,33 @@ AddEventHandler("vorp_ml_policejob:checkjob2", function()
     end
 end)
 
---cuff
+-- drag
+RegisterServerEvent('vorp_ml_policejob:drag')
+AddEventHandler('vorp_ml_policejob:drag', function(target)
+    local _source = source
+    local _target = target
+   
+    if _target then
+        if _target ~= _source then
+            TriggerClientEvent("vorp_ml_policejob:drag", _target, _source)
+        else
+            TriggerClientEvent("vorp:TipBottom", _source, _U('nodrag'), 4000)
+        end
+    else
+        TriggerClientEvent("vorp:TipBottom", _source, _U('norange'), 4000)
+    end
 
+end)
+
+--cuff
 RegisterServerEvent('vorp_ml_policejob:cuffplayer')
 AddEventHandler('vorp_ml_policejob:cuffplayer', function(target)
-        TriggerClientEvent('vorp_ml_policejob:cuff', target)
-        -- print('servercuff')
-        TriggerClientEvent("vorp:TipBottom", _source, _U('poner_esposas'), 4000) -- from server side
+    local _source = source
+    local _target = target
+
+    TriggerClientEvent('vorp_ml_policejob:cuff', _target)
+    -- print('servercuff')
+    TriggerClientEvent("vorp:TipBottom", _source, _U('poner_esposas'), 4000) -- from server side
 end)
 
 RegisterServerEvent('vorp_ml_policejob:metervehiculo')
@@ -88,7 +108,8 @@ end)
 RegisterServerEvent('vorp_ml_policejob:uncuffplayer')
 AddEventHandler('vorp_ml_policejob:uncuffplayer', function(target)
     local _source = source
-    TriggerClientEvent('vorp_ml_policejob:uncuff', target)
+    local _target = target
+    TriggerClientEvent('vorp_ml_policejob:uncuff', _target)
     -- print('serveruncuff')
     TriggerClientEvent("vorp:TipBottom", _source, _U('quitar_esposas'), 4000) -- from server side
 end)
@@ -99,8 +120,10 @@ end)
 RegisterServerEvent('vorp_ml_policejob:lassoplayer')
 AddEventHandler('vorp_ml_policejob:lassoplayer', function(target)
     local _source = source
-    --TriggerClientEvent('vorp_ml_policejob:lasso', target)
-	TriggerClientEvent('vorp_ml_policejob:hogtie', target)
+    local _target = target
+    -- TriggerClientEvent('vorp_ml_policejob:lasso', target)
+    TriggerClientEvent('vorp_ml_policejob:hogtie', _target)
     -- print('serverlasso')
+    TriggerClientEvent("vorp:TipBottom", _source, _U('atado'), 4000) -- from server side
     TriggerClientEvent("vorp:TipBottom", _source, _U('atado'), 4000) -- from server side
 end)

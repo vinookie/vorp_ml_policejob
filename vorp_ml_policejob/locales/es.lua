@@ -31,4 +31,6 @@ Locales['es'] = {
     ['atado'] = 'Atado',
     ['meter'] = 'Meter en el carro',
     ['sacar'] = 'Sacar del carro',
+    ['nodrag'] = 'No puedes arrastrarte.',
+    ['norange'] = 'Nadie en el rango.'
 }
